@@ -92,7 +92,7 @@ def win_events(hours_back: int, min_count: int):
     print(f"\n❌ Failed logons ≥{min_count} (last {hours_back}h)")
     _print_counter({ip: c for ip, c in failed.items() if c >= min_count}, "Source IP", "Count")
 
-    print(f"✅ Successful logons ≥{min_count} IPs (last {hours_back}h)")
+    print(f" Successful logons ≥{min_count} IPs (last {hours_back}h)")
     succ = {u: ips for u, ips in success.items() if len(ips) >= min_count}
     width = max((len(u) for u in succ), default=8)
     print(f"{'Username':<{width}} {'IPs':>8}")
@@ -202,7 +202,7 @@ def check_startup_items():
     list_run_keys(winreg.HKEY_CURRENT_USER, r"Software\Microsoft\Windows\CurrentVersion\Run", "Current User")
     list_run_keys(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "Local Machine")
 
-# ✅ Task A: Process RAM watchdog
+# Task A: Process RAM watchdog
 # Copilot snippet: filtered tasklist by RAM
 def check_heavy_procs(min_ram: int):
     print(f"\n[*] Processes using more than {min_ram} MB RAM\n")
@@ -228,7 +228,7 @@ def check_heavy_procs(min_ram: int):
         except ValueError:
             continue
 
-# ✅ Task B: Inbound firewall rule checker
+# Task B: Inbound firewall rule checker
 # ChatGPT snippet: firewall rule filter via netsh
 def check_firewall_rules():
     print("\n[*] Inbound Firewall Rules Allowing All Sources\n")
